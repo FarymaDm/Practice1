@@ -1,34 +1,22 @@
-
-cols = 9;
-rows = 9;
-document.write(' <table border=2, cellpadding=10, cellspacing=0, width="70%">');
-for (i = 1; i <= cols; i++) 
-    {
-        document.write("<tr>");
-        for (k = 1; k <= rows; k++)
-         {
- 
-             if (i == k) {
-                 document.write('<td style="background-color:green">');
-                 document.write(i * k);
-                
-             }
-             else
-                 if (i > k) {
-                     document.write('<td style="background-color:skyblue">');
-                     document.write(i * k);
-                     
- 
-                 }
-                 else {
-                     document.write('<td style="background-color:gold">');
-                     document.write(i * k);
-                    
-                 }
- 
-                 document.write("</td>");
-         }
-   
-        document.write("</tr>");
-    }
-document.write("</table>");
+var arr = new Array();
+for (var i = 1; i <= 9; i++) {
+	arr[i] = new Array();
+	for (var j = 1; j <= 9; j++) {
+		arr[i][j] = i * j;
+	}
+}
+for (var i = 1; i <= 9; i++) {
+	var cell = document.createElement('div');
+	for (var j = 1; j <= 9; j++) {
+		var cell = document.createElement('div');
+		if (i == j) {
+			cell.classList.add('green');
+		} else if (i > j) {
+			cell.classList.add('blue');
+		} else {
+			cell.classList.add('yellow');
+		}
+		cell.innerHTML = arr[i][j];
+		var container_cell = document.getElementById('main').appendChild(cell);
+	}
+}
